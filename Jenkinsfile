@@ -2,6 +2,10 @@ pipeline {
     agent {
         label ''
     }
+    environment {
+        image = "puwadol/demo-nodejs"
+        registry = "docker.io"
+    }
     stages {
         stage('Print Environment') {
             steps {
