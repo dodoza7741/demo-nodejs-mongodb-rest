@@ -6,7 +6,7 @@ var Values = mongoose.model('values', schema);
 
 module.exports = {
     connectDB :async function() {
-        mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true });
+        console.log('connecting... ');
         try {
             await mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true });
           } catch (error) {
