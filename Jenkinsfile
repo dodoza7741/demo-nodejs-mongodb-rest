@@ -3,7 +3,7 @@ pipeline {
         label ''
     }
     environment {
-        image = "puwadol/demo-nodejs"
+        image = "puwadol/nodejs"
         registry = "docker.io"
     }
     stages {
