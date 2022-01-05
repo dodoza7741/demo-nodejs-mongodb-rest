@@ -7,13 +7,6 @@ pipeline {
         registry = "docker.io"
     }
     stages {
-        stage('Print Environment') {
-            steps {
-                sh('ls -al')
-                sh('printenv')
-            }
-        }
-
         // stage('Ansible prepareations docker ') {
         //     steps{
         //         sh 'ANSIBLE_ROLES_PATH="$PWD/ansible-script/roles" ansible-playbook -vvv ./ansible-script/playbook/web-server/web-server.yml -i ./ansible-script/host -u root -e "state=prepareation tagnumber=${BUILD_NUMBER}"'
@@ -23,8 +16,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-              
-                        def slackImage = docker.build("${env.image}:${BUILD_NUMBER}")
+                        docker.build("${env.image}:${BUILD_NUMBER}")
                 }
             }
         }
