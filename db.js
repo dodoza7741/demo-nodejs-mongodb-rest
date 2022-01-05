@@ -5,8 +5,13 @@ var schema = mongoose.Schema({value: String});
 var Values = mongoose.model('values', schema);
 
 module.exports = {
-    connectDB : function() {
+    connectDB :async function() {
         mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true });
+        try {
+            await mongoose.connect(process.env.MONGODB_ADDON_URI, { useNewUrlParser: true });
+          } catch (error) {
+              console.log('error :>> ', error);
+          }
     },
 
     updateGauge : function() {
