@@ -15,9 +15,8 @@ pipeline {
         
         stage('Build docker image') {
             steps {
-                echo "Build images ... ${env.image}"
                 script {
-                   docker.build("${env.image}:${BUILD_NUMBER}")
+                   sh "docker build -f ./Dockerfile-sit -t ${env.image} ."
                 }
             }
         }
