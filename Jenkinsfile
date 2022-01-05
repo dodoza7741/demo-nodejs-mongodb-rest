@@ -1,5 +1,7 @@
 pipeline {
-
+    agent {
+        label 'master'
+    }
     stages {
         stage('Print Environment') {
             steps {
